@@ -1,0 +1,278 @@
+-- Speed, Fly & Jump Hack Menu
+local Player = game:GetService("Players").LocalPlayer
+local UserInputService = game:GetService("UserInputService")
+
+-- Создаем GUI
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game.CoreGui
+
+-- Основное меню (слева по центру, без перетаскивания)
+local MainFrame = Instance.new("Frame")
+MainFrame.Size = UDim2.new(0, 250, 0, 380)
+MainFrame.Position = UDim2.new(0, 20, 0.5, -190) -- 20px слева, вертикально по центру
+MainFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+MainFrame.Parent = ScreenGui
+MainFrame.Active = false
+MainFrame.Draggable = false
+
+-- Закругление углов
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 12)
+UICorner.Parent = MainFrame
+
+-- Контейнер с прокруткой
+local ScrollFrame = Instance.new("ScrollingFrame")
+ScrollFrame.Size = UDim2.new(1, 0, 1, 0)
+ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 500)
+ScrollFrame.ScrollBarThickness = 6
+ScrollFrame.BackgroundTransparency = 1
+ScrollFrame.Parent = MainFrame
+
+-- === SpeedHack Section ===
+local SpeedTitle = Instance.new("TextLabel")
+SpeedTitle.Size = UDim2.new(0.9, 0, 0, 30)
+SpeedTitle.Position = UDim2.new(0.05, 0, 0, 5)
+SpeedTitle.BackgroundTransparency = 1
+SpeedTitle.Text = "SPEEDHACK"
+SpeedTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpeedTitle.Font = Enum.Font.GothamBold
+SpeedTitle.TextSize = 18
+SpeedTitle.Parent = ScrollFrame
+
+local SpeedBox = Instance.new("TextBox")
+SpeedBox.Size = UDim2.new(0.88, 0, 0, 30)
+SpeedBox.Position = UDim2.new(0.06, 0, 0, 40)
+SpeedBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+SpeedBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpeedBox.Text = "16"
+SpeedBox.PlaceholderText = "Enter speed"
+SpeedBox.Parent = ScrollFrame
+
+local ApplySpeedButton = Instance.new("TextButton")
+ApplySpeedButton.Size = UDim2.new(0.88, 0, 0, 30)
+ApplySpeedButton.Position = UDim2.new(0.06, 0, 0, 75)
+ApplySpeedButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+ApplySpeedButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ApplySpeedButton.Text = "APPLY SPEED"
+ApplySpeedButton.Font = Enum.Font.GothamBold
+ApplySpeedButton.TextSize = 14
+ApplySpeedButton.Parent = ScrollFrame
+
+local ToggleSpeedButton = Instance.new("TextButton")
+ToggleSpeedButton.Size = UDim2.new(0.88, 0, 0, 30)
+ToggleSpeedButton.Position = UDim2.new(0.06, 0, 0, 110)
+ToggleSpeedButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+ToggleSpeedButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleSpeedButton.Text = "DISABLE (16)"
+ToggleSpeedButton.Font = Enum.Font.GothamBold
+ToggleSpeedButton.TextSize = 14
+ToggleSpeedButton.Parent = ScrollFrame
+
+-- === FlyHack Section ===
+local Divider1 = Instance.new("Frame")
+Divider1.Size = UDim2.new(0.9, 0, 0, 1)
+Divider1.Position = UDim2.new(0.05, 0, 0, 150)
+Divider1.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Divider1.Parent = ScrollFrame
+
+local FlyTitle = Instance.new("TextLabel")
+FlyTitle.Size = UDim2.new(0.9, 0, 0, 30)
+FlyTitle.Position = UDim2.new(0.05, 0, 0, 160)
+FlyTitle.BackgroundTransparency = 1
+FlyTitle.Text = "FLYHACK"
+FlyTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+FlyTitle.Font = Enum.Font.GothamBold
+FlyTitle.TextSize = 18
+FlyTitle.Parent = ScrollFrame
+
+local ToggleFlyButton = Instance.new("TextButton")
+ToggleFlyButton.Size = UDim2.new(0.88, 0, 0, 30)
+ToggleFlyButton.Position = UDim2.new(0.06, 0, 0, 195)
+ToggleFlyButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+ToggleFlyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleFlyButton.Text = "DISABLED"
+ToggleFlyButton.Font = Enum.Font.GothamBold
+ToggleFlyButton.TextSize = 14
+ToggleFlyButton.Parent = ScrollFrame
+
+-- === JumpPower Section ===
+local Divider2 = Instance.new("Frame")
+Divider2.Size = UDim2.new(0.9, 0, 0, 1)
+Divider2.Position = UDim2.new(0.05, 0, 0, 235)
+Divider2.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Divider2.Parent = ScrollFrame
+
+local JumpTitle = Instance.new("TextLabel")
+JumpTitle.Size = UDim2.new(0.9, 0, 0, 30)
+JumpTitle.Position = UDim2.new(0.05, 0, 0, 245)
+JumpTitle.BackgroundTransparency = 1
+JumpTitle.Text = "JUMP POWER"
+JumpTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+JumpTitle.Font = Enum.Font.GothamBold
+JumpTitle.TextSize = 18
+JumpTitle.Parent = ScrollFrame
+
+local JumpBox = Instance.new("TextBox")
+JumpBox.Size = UDim2.new(0.88, 0, 0, 30)
+JumpBox.Position = UDim2.new(0.06, 0, 0, 280)
+JumpBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+JumpBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+JumpBox.Text = "50"
+JumpBox.PlaceholderText = "Enter jump power"
+JumpBox.Parent = ScrollFrame
+
+local ApplyJumpButton = Instance.new("TextButton")
+ApplyJumpButton.Size = UDim2.new(0.88, 0, 0, 30)
+ApplyJumpButton.Position = UDim2.new(0.06, 0, 0, 315)
+ApplyJumpButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+ApplyJumpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ApplyJumpButton.Text = "APPLY JUMP"
+ApplyJumpButton.Font = Enum.Font.GothamBold
+ApplyJumpButton.TextSize = 14
+ApplyJumpButton.Parent = ScrollFrame
+
+local ToggleJumpButton = Instance.new("TextButton")
+ToggleJumpButton.Size = UDim2.new(0.88, 0, 0, 30)
+ToggleJumpButton.Position = UDim2.new(0.06, 0, 0, 350)
+ToggleJumpButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+ToggleJumpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleJumpButton.Text = "DISABLE (50)"
+ToggleJumpButton.Font = Enum.Font.GothamBold
+ToggleJumpButton.TextSize = 14
+ToggleJumpButton.Parent = ScrollFrame
+
+-- Hint
+local Hint = Instance.new("TextLabel")
+Hint.Size = UDim2.new(0.9, 0, 0, 20)
+Hint.Position = UDim2.new(0.05, 0, 0, 460)
+Hint.BackgroundTransparency = 1
+Hint.Text = "CTRL TO TOGGLE MENU"
+Hint.TextColor3 = Color3.fromRGB(150, 150, 150)
+Hint.Font = Enum.Font.Gotham
+Hint.TextSize = 12
+Hint.Parent = ScrollFrame
+
+-- Логика
+local originalSpeed = 16
+local speedEnabled = true
+local flyEnabled = false
+local flyBodyVelocity, flyBodyGyro
+local originalJump = 50
+local jumpEnabled = true
+
+-- Обновление скорости
+local function updateSpeed()
+    if Player.Character and Player.Character:FindFirstChildOfClass("Humanoid") then
+        Player.Character.Humanoid.WalkSpeed = speedEnabled and originalSpeed or 16
+        ToggleSpeedButton.Text = (speedEnabled and "DISABLE (" or "ENABLE (")..originalSpeed..")"
+    end
+end
+
+-- Обновление прыжка
+local function updateJump()
+    if Player.Character and Player.Character:FindFirstChildOfClass("Humanoid") then
+        Player.Character.Humanoid.JumpPower = jumpEnabled and originalJump or 50
+        ToggleJumpButton.Text = (jumpEnabled and "DISABLE (" or "ENABLE (")..originalJump..")"
+    end
+end
+
+-- Полёт
+local function toggleFlight()
+    flyEnabled = not flyEnabled
+    local character = Player.Character
+    if not character then return end
+    
+    if flyEnabled then
+        flyBodyVelocity = Instance.new("BodyVelocity")
+        flyBodyVelocity.Velocity = Vector3.new(0, 0, 0)
+        flyBodyVelocity.MaxForce = Vector3.new(0, math.huge, 0)
+        flyBodyVelocity.Parent = character:FindFirstChild("HumanoidRootPart") or character:WaitForChild("HumanoidRootPart")
+        
+        flyBodyGyro = Instance.new("BodyGyro")
+        flyBodyGyro.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+        flyBodyGyro.P = 10000
+        flyBodyGyro.Parent = character:FindFirstChild("HumanoidRootPart") or character:WaitForChild("HumanoidRootPart")
+        
+        ToggleFlyButton.Text = "ENABLED"
+    else
+        if flyBodyVelocity then flyBodyVelocity:Destroy() end
+        if flyBodyGyro then flyBodyGyro:Destroy() end
+        ToggleFlyButton.Text = "DISABLED"
+    end
+end
+
+-- Управление полётом
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if flyEnabled and not gameProcessed then
+        if input.KeyCode == Enum.KeyCode.Space then
+            flyBodyVelocity.Velocity = Vector3.new(0, 50, 0)
+        elseif input.KeyCode == Enum.KeyCode.LeftShift then
+            flyBodyVelocity.Velocity = Vector3.new(0, -50, 0)
+        end
+    end
+end)
+
+UserInputService.InputEnded:Connect(function(input)
+    if flyEnabled and (input.KeyCode == Enum.KeyCode.Space or input.KeyCode == Enum.KeyCode.LeftShift) then
+        flyBodyVelocity.Velocity = Vector3.new(0, 0, 0)
+    end
+end)
+
+-- Кнопки
+ApplySpeedButton.MouseButton1Click:Connect(function()
+    local newSpeed = tonumber(SpeedBox.Text)
+    if newSpeed and newSpeed > 0 then
+        originalSpeed = newSpeed
+        updateSpeed()
+    else
+        SpeedBox.Text = "INVALID"
+        task.wait(1)
+        SpeedBox.Text = tostring(originalSpeed)
+    end
+end)
+
+ToggleSpeedButton.MouseButton1Click:Connect(function()
+    speedEnabled = not speedEnabled
+    updateSpeed()
+end)
+
+ApplyJumpButton.MouseButton1Click:Connect(function()
+    local newJump = tonumber(JumpBox.Text)
+    if newJump and newJump > 0 then
+        originalJump = newJump
+        updateJump()
+    else
+        JumpBox.Text = "INVALID"
+        task.wait(1)
+        JumpBox.Text = tostring(originalJump)
+    end
+end)
+
+ToggleJumpButton.MouseButton1Click:Connect(function()
+    jumpEnabled = not jumpEnabled
+    updateJump()
+end)
+
+ToggleFlyButton.MouseButton1Click:Connect(toggleFlight)
+
+-- Переключение меню
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if not gameProcessed and input.KeyCode == Enum.KeyCode.LeftControl then
+        MainFrame.Visible = not MainFrame.Visible
+    end
+end)
+
+-- При смене персонажа
+Player.CharacterAdded:Connect(function()
+    task.wait(0.5)
+    updateSpeed()
+    updateJump()
+    if flyEnabled then
+        toggleFlight()
+        toggleFlight()
+    end
+end)
+
+-- Инициализация
+updateSpeed()
+updateJump()
