@@ -8,8 +8,8 @@ ScreenGui.Parent = game.CoreGui
 
 -- Основное меню (слева по центру, без перетаскивания)
 local MainFrame = Instance.new("Frame")
-MainFrame.Size = UDim2.new(0, 250, 0, 380)
-MainFrame.Position = UDim2.new(0, 20, 0.5, -190)
+MainFrame.Size = UDim2.new(0, 250, 0, 300) -- Уменьшили высоту
+MainFrame.Position = UDim2.new(0, 20, 0.5, -150)
 MainFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 MainFrame.Parent = ScreenGui
 MainFrame.Active = false
@@ -23,7 +23,7 @@ UICorner.Parent = MainFrame
 -- Контейнер с прокруткой
 local ScrollFrame = Instance.new("ScrollingFrame")
 ScrollFrame.Size = UDim2.new(1, 0, 1, 0)
-ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 500)
+ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 400) -- Уменьшили область прокрутки
 ScrollFrame.ScrollBarThickness = 6
 ScrollFrame.BackgroundTransparency = 1
 ScrollFrame.Parent = MainFrame
@@ -69,11 +69,11 @@ ToggleSpeedButton.TextSize = 14
 ToggleSpeedButton.Parent = ScrollFrame
 
 -- === JumpPower Section ===
-local Divider1 = Instance.new("Frame")
-Divider1.Size = UDim2.new(0.9, 0, 0, 1)
-Divider1.Position = UDim2.new(0.05, 0, 0, 150)
-Divider1.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
-Divider1.Parent = ScrollFrame
+local Divider = Instance.new("Frame")
+Divider.Size = UDim2.new(0.9, 0, 0, 1)
+Divider.Position = UDim2.new(0.05, 0, 0, 150)
+Divider.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Divider.Parent = ScrollFrame
 
 local JumpTitle = Instance.new("TextLabel")
 JumpTitle.Size = UDim2.new(0.9, 0, 0, 30)
@@ -114,56 +114,10 @@ ToggleJumpButton.Font = Enum.Font.GothamBold
 ToggleJumpButton.TextSize = 14
 ToggleJumpButton.Parent = ScrollFrame
 
--- === Extra Jump Section ===
-local Divider2 = Instance.new("Frame")
-Divider2.Size = UDim2.new(0.9, 0, 0, 1)
-Divider2.Position = UDim2.new(0.05, 0, 0, 305)
-Divider2.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
-Divider2.Parent = ScrollFrame
-
-local ExtraJumpTitle = Instance.new("TextLabel")
-ExtraJumpTitle.Size = UDim2.new(0.9, 0, 0, 30)
-ExtraJumpTitle.Position = UDim2.new(0.05, 0, 0, 315)
-ExtraJumpTitle.BackgroundTransparency = 1
-ExtraJumpTitle.Text = "EXTRA JUMPS"
-ExtraJumpTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-ExtraJumpTitle.Font = Enum.Font.GothamBold
-ExtraJumpTitle.TextSize = 18
-ExtraJumpTitle.Parent = ScrollFrame
-
-local ExtraJumpBox = Instance.new("TextBox")
-ExtraJumpBox.Size = UDim2.new(0.88, 0, 0, 30)
-ExtraJumpBox.Position = UDim2.new(0.06, 0, 0, 350)
-ExtraJumpBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-ExtraJumpBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-ExtraJumpBox.Text = "1"
-ExtraJumpBox.PlaceholderText = "Extra jumps count"
-ExtraJumpBox.Parent = ScrollFrame
-
-local ApplyExtraJumpButton = Instance.new("TextButton")
-ApplyExtraJumpButton.Size = UDim2.new(0.88, 0, 0, 30)
-ApplyExtraJumpButton.Position = UDim2.new(0.06, 0, 0, 385)
-ApplyExtraJumpButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-ApplyExtraJumpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-ApplyExtraJumpButton.Text = "APPLY EXTRA JUMPS"
-ApplyExtraJumpButton.Font = Enum.Font.GothamBold
-ApplyExtraJumpButton.TextSize = 14
-ApplyExtraJumpButton.Parent = ScrollFrame
-
-local ToggleExtraJumpButton = Instance.new("TextButton")
-ToggleExtraJumpButton.Size = UDim2.new(0.88, 0, 0, 30)
-ToggleExtraJumpButton.Position = UDim2.new(0.06, 0, 0, 420)
-ToggleExtraJumpButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-ToggleExtraJumpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-ToggleExtraJumpButton.Text = "DISABLE (1)"
-ToggleExtraJumpButton.Font = Enum.Font.GothamBold
-ToggleExtraJumpButton.TextSize = 14
-ToggleExtraJumpButton.Parent = ScrollFrame
-
 -- Hint
 local Hint = Instance.new("TextLabel")
 Hint.Size = UDim2.new(0.9, 0, 0, 20)
-Hint.Position = UDim2.new(0.05, 0, 0, 460)
+Hint.Position = UDim2.new(0.05, 0, 0, 310)
 Hint.BackgroundTransparency = 1
 Hint.Text = "CTRL TO TOGGLE MENU"
 Hint.TextColor3 = Color3.fromRGB(150, 150, 150)
@@ -176,10 +130,6 @@ local originalSpeed = 16
 local speedEnabled = true
 local originalJump = 50
 local jumpEnabled = true
-local extraJumps = 1
-local extraJumpsEnabled = true
-local remainingJumps = 0
-local isJumping = false
 
 -- Обновление скорости
 local function updateSpeed()
@@ -195,32 +145,6 @@ local function updateJump()
         Player.Character.Humanoid.JumpPower = jumpEnabled and originalJump or 50
         ToggleJumpButton.Text = (jumpEnabled and "DISABLE (" or "ENABLE (")..originalJump..")"
     end
-end
-
--- Обработчик дополнительных прыжков
-local function onJumpRequest()
-    if not extraJumpsEnabled or not Player.Character then return end
-    
-    local humanoid = Player.Character:FindFirstChildOfClass("Humanoid")
-    if not humanoid then return end
-    
-    if not humanoid:GetState() == Enum.HumanoidStateType.Jumping then
-        remainingJumps = extraJumps
-        isJumping = false
-        return
-    end
-    
-    if isJumping and remainingJumps > 0 then
-        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-        remainingJumps = remainingJumps - 1
-    end
-    
-    isJumping = true
-end
-
--- Обновление дополнительных прыжков
-local function updateExtraJumps()
-    ToggleExtraJumpButton.Text = (extraJumpsEnabled and "DISABLE (" or "ENABLE (")..extraJumps..")"
 end
 
 -- Кнопки
@@ -258,26 +182,6 @@ ToggleJumpButton.MouseButton1Click:Connect(function()
     updateJump()
 end)
 
-ApplyExtraJumpButton.MouseButton1Click:Connect(function()
-    local newExtra = tonumber(ExtraJumpBox.Text)
-    if newExtra and newExtra >= 0 then
-        extraJumps = newExtra
-        updateExtraJumps()
-    else
-        ExtraJumpBox.Text = "INVALID"
-        task.wait(1)
-        ExtraJumpBox.Text = tostring(extraJumps)
-    end
-end)
-
-ToggleExtraJumpButton.MouseButton1Click:Connect(function()
-    extraJumpsEnabled = not extraJumpsEnabled
-    updateExtraJumps()
-end)
-
--- Подключение обработчика прыжков
-UserInputService.JumpRequest:Connect(onJumpRequest)
-
 -- Переключение меню
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
     if not gameProcessed and input.KeyCode == Enum.KeyCode.LeftControl then
@@ -290,10 +194,8 @@ Player.CharacterAdded:Connect(function(character)
     task.wait(0.5)
     updateSpeed()
     updateJump()
-    updateExtraJumps()
 end)
 
 -- Инициализация
 updateSpeed()
 updateJump()
-updateExtraJumps()
