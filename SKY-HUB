@@ -1,4 +1,4 @@
--- Speed, Fly & Jump Hack Menu
+-- Speed & Jump Hack Menu
 local Player = game:GetService("Players").LocalPlayer
 local UserInputService = game:GetService("UserInputService")
 
@@ -9,7 +9,7 @@ ScreenGui.Parent = game.CoreGui
 -- Основное меню (слева по центру, без перетаскивания)
 local MainFrame = Instance.new("Frame")
 MainFrame.Size = UDim2.new(0, 250, 0, 380)
-MainFrame.Position = UDim2.new(0, 20, 0.5, -190) -- 20px слева, вертикально по центру
+MainFrame.Position = UDim2.new(0, 20, 0.5, -190)
 MainFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 MainFrame.Parent = ScreenGui
 MainFrame.Active = false
@@ -68,43 +68,16 @@ ToggleSpeedButton.Font = Enum.Font.GothamBold
 ToggleSpeedButton.TextSize = 14
 ToggleSpeedButton.Parent = ScrollFrame
 
--- === FlyHack Section ===
+-- === JumpPower Section ===
 local Divider1 = Instance.new("Frame")
 Divider1.Size = UDim2.new(0.9, 0, 0, 1)
 Divider1.Position = UDim2.new(0.05, 0, 0, 150)
 Divider1.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 Divider1.Parent = ScrollFrame
 
-local FlyTitle = Instance.new("TextLabel")
-FlyTitle.Size = UDim2.new(0.9, 0, 0, 30)
-FlyTitle.Position = UDim2.new(0.05, 0, 0, 160)
-FlyTitle.BackgroundTransparency = 1
-FlyTitle.Text = "FLYHACK"
-FlyTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-FlyTitle.Font = Enum.Font.GothamBold
-FlyTitle.TextSize = 18
-FlyTitle.Parent = ScrollFrame
-
-local ToggleFlyButton = Instance.new("TextButton")
-ToggleFlyButton.Size = UDim2.new(0.88, 0, 0, 30)
-ToggleFlyButton.Position = UDim2.new(0.06, 0, 0, 195)
-ToggleFlyButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-ToggleFlyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-ToggleFlyButton.Text = "DISABLED"
-ToggleFlyButton.Font = Enum.Font.GothamBold
-ToggleFlyButton.TextSize = 14
-ToggleFlyButton.Parent = ScrollFrame
-
--- === JumpPower Section ===
-local Divider2 = Instance.new("Frame")
-Divider2.Size = UDim2.new(0.9, 0, 0, 1)
-Divider2.Position = UDim2.new(0.05, 0, 0, 235)
-Divider2.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
-Divider2.Parent = ScrollFrame
-
 local JumpTitle = Instance.new("TextLabel")
 JumpTitle.Size = UDim2.new(0.9, 0, 0, 30)
-JumpTitle.Position = UDim2.new(0.05, 0, 0, 245)
+JumpTitle.Position = UDim2.new(0.05, 0, 0, 160)
 JumpTitle.BackgroundTransparency = 1
 JumpTitle.Text = "JUMP POWER"
 JumpTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -114,7 +87,7 @@ JumpTitle.Parent = ScrollFrame
 
 local JumpBox = Instance.new("TextBox")
 JumpBox.Size = UDim2.new(0.88, 0, 0, 30)
-JumpBox.Position = UDim2.new(0.06, 0, 0, 280)
+JumpBox.Position = UDim2.new(0.06, 0, 0, 195)
 JumpBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 JumpBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 JumpBox.Text = "50"
@@ -123,7 +96,7 @@ JumpBox.Parent = ScrollFrame
 
 local ApplyJumpButton = Instance.new("TextButton")
 ApplyJumpButton.Size = UDim2.new(0.88, 0, 0, 30)
-ApplyJumpButton.Position = UDim2.new(0.06, 0, 0, 315)
+ApplyJumpButton.Position = UDim2.new(0.06, 0, 0, 230)
 ApplyJumpButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
 ApplyJumpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 ApplyJumpButton.Text = "APPLY JUMP"
@@ -133,13 +106,59 @@ ApplyJumpButton.Parent = ScrollFrame
 
 local ToggleJumpButton = Instance.new("TextButton")
 ToggleJumpButton.Size = UDim2.new(0.88, 0, 0, 30)
-ToggleJumpButton.Position = UDim2.new(0.06, 0, 0, 350)
+ToggleJumpButton.Position = UDim2.new(0.06, 0, 0, 265)
 ToggleJumpButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
 ToggleJumpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 ToggleJumpButton.Text = "DISABLE (50)"
 ToggleJumpButton.Font = Enum.Font.GothamBold
 ToggleJumpButton.TextSize = 14
 ToggleJumpButton.Parent = ScrollFrame
+
+-- === Extra Jump Section ===
+local Divider2 = Instance.new("Frame")
+Divider2.Size = UDim2.new(0.9, 0, 0, 1)
+Divider2.Position = UDim2.new(0.05, 0, 0, 305)
+Divider2.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Divider2.Parent = ScrollFrame
+
+local ExtraJumpTitle = Instance.new("TextLabel")
+ExtraJumpTitle.Size = UDim2.new(0.9, 0, 0, 30)
+ExtraJumpTitle.Position = UDim2.new(0.05, 0, 0, 315)
+ExtraJumpTitle.BackgroundTransparency = 1
+ExtraJumpTitle.Text = "EXTRA JUMPS"
+ExtraJumpTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+ExtraJumpTitle.Font = Enum.Font.GothamBold
+ExtraJumpTitle.TextSize = 18
+ExtraJumpTitle.Parent = ScrollFrame
+
+local ExtraJumpBox = Instance.new("TextBox")
+ExtraJumpBox.Size = UDim2.new(0.88, 0, 0, 30)
+ExtraJumpBox.Position = UDim2.new(0.06, 0, 0, 350)
+ExtraJumpBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+ExtraJumpBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+ExtraJumpBox.Text = "1"
+ExtraJumpBox.PlaceholderText = "Extra jumps count"
+ExtraJumpBox.Parent = ScrollFrame
+
+local ApplyExtraJumpButton = Instance.new("TextButton")
+ApplyExtraJumpButton.Size = UDim2.new(0.88, 0, 0, 30)
+ApplyExtraJumpButton.Position = UDim2.new(0.06, 0, 0, 385)
+ApplyExtraJumpButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+ApplyExtraJumpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ApplyExtraJumpButton.Text = "APPLY EXTRA JUMPS"
+ApplyExtraJumpButton.Font = Enum.Font.GothamBold
+ApplyExtraJumpButton.TextSize = 14
+ApplyExtraJumpButton.Parent = ScrollFrame
+
+local ToggleExtraJumpButton = Instance.new("TextButton")
+ToggleExtraJumpButton.Size = UDim2.new(0.88, 0, 0, 30)
+ToggleExtraJumpButton.Position = UDim2.new(0.06, 0, 0, 420)
+ToggleExtraJumpButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+ToggleExtraJumpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleExtraJumpButton.Text = "DISABLE (1)"
+ToggleExtraJumpButton.Font = Enum.Font.GothamBold
+ToggleExtraJumpButton.TextSize = 14
+ToggleExtraJumpButton.Parent = ScrollFrame
 
 -- Hint
 local Hint = Instance.new("TextLabel")
@@ -155,10 +174,12 @@ Hint.Parent = ScrollFrame
 -- Логика
 local originalSpeed = 16
 local speedEnabled = true
-local flyEnabled = false
-local flyBodyVelocity, flyBodyGyro
 local originalJump = 50
 local jumpEnabled = true
+local extraJumps = 1
+local extraJumpsEnabled = true
+local remainingJumps = 0
+local isJumping = false
 
 -- Обновление скорости
 local function updateSpeed()
@@ -176,47 +197,31 @@ local function updateJump()
     end
 end
 
--- Полёт
-local function toggleFlight()
-    flyEnabled = not flyEnabled
-    local character = Player.Character
-    if not character then return end
+-- Обработчик дополнительных прыжков
+local function onJumpRequest()
+    if not extraJumpsEnabled or not Player.Character then return end
     
-    if flyEnabled then
-        flyBodyVelocity = Instance.new("BodyVelocity")
-        flyBodyVelocity.Velocity = Vector3.new(0, 0, 0)
-        flyBodyVelocity.MaxForce = Vector3.new(0, math.huge, 0)
-        flyBodyVelocity.Parent = character:FindFirstChild("HumanoidRootPart") or character:WaitForChild("HumanoidRootPart")
-        
-        flyBodyGyro = Instance.new("BodyGyro")
-        flyBodyGyro.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
-        flyBodyGyro.P = 10000
-        flyBodyGyro.Parent = character:FindFirstChild("HumanoidRootPart") or character:WaitForChild("HumanoidRootPart")
-        
-        ToggleFlyButton.Text = "ENABLED"
-    else
-        if flyBodyVelocity then flyBodyVelocity:Destroy() end
-        if flyBodyGyro then flyBodyGyro:Destroy() end
-        ToggleFlyButton.Text = "DISABLED"
+    local humanoid = Player.Character:FindFirstChildOfClass("Humanoid")
+    if not humanoid then return end
+    
+    if not humanoid:GetState() == Enum.HumanoidStateType.Jumping then
+        remainingJumps = extraJumps
+        isJumping = false
+        return
     end
+    
+    if isJumping and remainingJumps > 0 then
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        remainingJumps = remainingJumps - 1
+    end
+    
+    isJumping = true
 end
 
--- Управление полётом
-UserInputService.InputBegan:Connect(function(input, gameProcessed)
-    if flyEnabled and not gameProcessed then
-        if input.KeyCode == Enum.KeyCode.Space then
-            flyBodyVelocity.Velocity = Vector3.new(0, 50, 0)
-        elseif input.KeyCode == Enum.KeyCode.LeftShift then
-            flyBodyVelocity.Velocity = Vector3.new(0, -50, 0)
-        end
-    end
-end)
-
-UserInputService.InputEnded:Connect(function(input)
-    if flyEnabled and (input.KeyCode == Enum.KeyCode.Space or input.KeyCode == Enum.KeyCode.LeftShift) then
-        flyBodyVelocity.Velocity = Vector3.new(0, 0, 0)
-    end
-end)
+-- Обновление дополнительных прыжков
+local function updateExtraJumps()
+    ToggleExtraJumpButton.Text = (extraJumpsEnabled and "DISABLE (" or "ENABLE (")..extraJumps..")"
+end
 
 -- Кнопки
 ApplySpeedButton.MouseButton1Click:Connect(function()
@@ -253,7 +258,25 @@ ToggleJumpButton.MouseButton1Click:Connect(function()
     updateJump()
 end)
 
-ToggleFlyButton.MouseButton1Click:Connect(toggleFlight)
+ApplyExtraJumpButton.MouseButton1Click:Connect(function()
+    local newExtra = tonumber(ExtraJumpBox.Text)
+    if newExtra and newExtra >= 0 then
+        extraJumps = newExtra
+        updateExtraJumps()
+    else
+        ExtraJumpBox.Text = "INVALID"
+        task.wait(1)
+        ExtraJumpBox.Text = tostring(extraJumps)
+    end
+end)
+
+ToggleExtraJumpButton.MouseButton1Click:Connect(function()
+    extraJumpsEnabled = not extraJumpsEnabled
+    updateExtraJumps()
+end)
+
+-- Подключение обработчика прыжков
+UserInputService.JumpRequest:Connect(onJumpRequest)
 
 -- Переключение меню
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
@@ -263,16 +286,14 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
 end)
 
 -- При смене персонажа
-Player.CharacterAdded:Connect(function()
+Player.CharacterAdded:Connect(function(character)
     task.wait(0.5)
     updateSpeed()
     updateJump()
-    if flyEnabled then
-        toggleFlight()
-        toggleFlight()
-    end
+    updateExtraJumps()
 end)
 
 -- Инициализация
 updateSpeed()
 updateJump()
+updateExtraJumps()
