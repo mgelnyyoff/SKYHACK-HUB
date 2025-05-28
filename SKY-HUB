@@ -1,4 +1,4 @@
--- Speed & Jump Hack Menu with FlyHack, Noclip, GodMode, HP Changer and Rotate Hack
+-- Speed & Jump Hack Menu with FlyHack, Noclip, GodMode, HP Changer, Rotate Hack and Clone
 local Player = game:GetService("Players").LocalPlayer
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
@@ -24,7 +24,7 @@ UICorner.Parent = MainFrame
 -- Контейнер с прокруткой
 local ScrollFrame = Instance.new("ScrollingFrame")
 ScrollFrame.Size = UDim2.new(1, 0, 1, 0)
-ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 1050)
+ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 1150)
 ScrollFrame.ScrollBarThickness = 6
 ScrollFrame.BackgroundTransparency = 1
 ScrollFrame.Parent = MainFrame
@@ -215,12 +215,11 @@ ToggleGodModeButton.Font = Enum.Font.GothamBold
 ToggleGodModeButton.TextSize = 14
 ToggleGodModeButton.Parent = ScrollFrame
 
--- Добавляем подпись под GodMode
 local GodModeHint = Instance.new("TextLabel")
 GodModeHint.Size = UDim2.new(0.88, 0, 0, 20)
 GodModeHint.Position = UDim2.new(0.06, 0, 0, 625)
 GodModeHint.BackgroundTransparency = 1
-GodModeHint.Text = "if godmode dont worK, try - CHANGE HP"
+GodModeHint.Text = "if godmode dont work or else"
 GodModeHint.TextColor3 = Color3.fromRGB(150, 150, 150)
 GodModeHint.Font = Enum.Font.Gotham
 GodModeHint.TextSize = 12
@@ -273,7 +272,7 @@ ToggleRotateButton.Font = Enum.Font.GothamBold
 ToggleRotateButton.TextSize = 14
 ToggleRotateButton.Parent = ScrollFrame
 
--- Добавляем раздел для изменения HP
+-- === HP Changer Section ===
 local ChangeHPTitle = Instance.new("TextLabel")
 ChangeHPTitle.Size = UDim2.new(0.9, 0, 0, 30)
 ChangeHPTitle.Position = UDim2.new(0.05, 0, 0, 805)
@@ -303,12 +302,74 @@ ApplyHPButton.Font = Enum.Font.GothamBold
 ApplyHPButton.TextSize = 14
 ApplyHPButton.Parent = ScrollFrame
 
+-- === IN PROGRESS Section ===
+local Divider6 = Instance.new("Frame")
+Divider6.Size = UDim2.new(0.9, 0, 0, 1)
+Divider6.Position = UDim2.new(0.05, 0, 0, 915)
+Divider6.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Divider6.Parent = ScrollFrame
+
+local InProgressLabel = Instance.new("TextLabel")
+InProgressLabel.Size = UDim2.new(0.9, 0, 0, 30)
+InProgressLabel.Position = UDim2.new(0.05, 0, 0, 925)
+InProgressLabel.BackgroundTransparency = 1
+InProgressLabel.Text = "IN PROGRESS..."
+InProgressLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+InProgressLabel.Font = Enum.Font.GothamBold
+InProgressLabel.TextSize = 18
+InProgressLabel.Parent = ScrollFrame
+
+-- === Clone Section (DISABLED) ===
+local CloneTitle = Instance.new("TextLabel")
+CloneTitle.Size = UDim2.new(0.9, 0, 0, 30)
+CloneTitle.Position = UDim2.new(0.05, 0, 0, 960)
+CloneTitle.BackgroundTransparency = 1
+CloneTitle.Text = "CLONE (DISABLED)"
+CloneTitle.TextColor3 = Color3.fromRGB(150, 150, 150)
+CloneTitle.Font = Enum.Font.GothamBold
+CloneTitle.TextSize = 18
+CloneTitle.Parent = ScrollFrame
+
+local CloneCountBox = Instance.new("TextBox")
+CloneCountBox.Size = UDim2.new(0.88, 0, 0, 30)
+CloneCountBox.Position = UDim2.new(0.06, 0, 0, 995)
+CloneCountBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+CloneCountBox.TextColor3 = Color3.fromRGB(100, 100, 100)
+CloneCountBox.Text = "1"
+CloneCountBox.PlaceholderText = "Number of clones"
+CloneCountBox.TextEditable = false
+CloneCountBox.Parent = ScrollFrame
+
+local ToggleCloneButton = Instance.new("TextButton")
+ToggleCloneButton.Size = UDim2.new(0.88, 0, 0, 30)
+ToggleCloneButton.Position = UDim2.new(0.06, 0, 0, 1030)
+ToggleCloneButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+ToggleCloneButton.TextColor3 = Color3.fromRGB(100, 100, 100)
+ToggleCloneButton.Text = "DISABLED"
+ToggleCloneButton.Font = Enum.Font.GothamBold
+ToggleCloneButton.TextSize = 14
+ToggleCloneButton.AutoButtonColor = false
+ToggleCloneButton.Active = false
+ToggleCloneButton.Parent = ScrollFrame
+
+local DeleteCloneButton = Instance.new("TextButton")
+DeleteCloneButton.Size = UDim2.new(0.88, 0, 0, 30)
+DeleteCloneButton.Position = UDim2.new(0.06, 0, 0, 1065)
+DeleteCloneButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+DeleteCloneButton.TextColor3 = Color3.fromRGB(100, 100, 100)
+DeleteCloneButton.Text = "DISABLED"
+DeleteCloneButton.Font = Enum.Font.GothamBold
+DeleteCloneButton.TextSize = 14
+DeleteCloneButton.AutoButtonColor = false
+DeleteCloneButton.Active = false
+DeleteCloneButton.Parent = ScrollFrame
+
 -- Hint
 local Hint = Instance.new("TextLabel")
 Hint.Size = UDim2.new(0.9, 0, 0, 20)
-Hint.Position = UDim2.new(0.05, 0, 0, 915)
+Hint.Position = UDim2.new(0.05, 0, 0, 1105)
 Hint.BackgroundTransparency = 1
-Hint.Text = "CTRL TO ON/OFF MENU"
+Hint.Text = "CTRL TO TOGGLE MENU"
 Hint.TextColor3 = Color3.fromRGB(150, 150, 150)
 Hint.Font = Enum.Font.Gotham
 Hint.TextSize = 12
@@ -435,6 +496,7 @@ local function toggleGodMode()
     ToggleGodModeButton.Text = godModeEnabled and "ENABLED" or "DISABLED"
 end
 
+-- Логика полета
 local function toggleFlight()
     flyEnabled = not flyEnabled
     local character = Player.Character
@@ -464,6 +526,7 @@ local function toggleFlight()
     end
 end
 
+-- Логика Noclip
 local function toggleNoclip()
     noclipEnabled = not noclipEnabled
     ToggleNoclipButton.Text = noclipEnabled and "ENABLED" or "DISABLED"
@@ -487,6 +550,7 @@ local function toggleNoclip()
     end
 end
 
+-- Логика Rotate Hack
 local function toggleRotate()
     rotateEnabled = not rotateEnabled
     ToggleRotateButton.Text = rotateEnabled and "ENABLED" or "DISABLED"
@@ -502,6 +566,10 @@ local function toggleRotate()
         end
     end
 end
+
+-- Пустые функции для кнопок клонирования (они отключены)
+local function createClone() end
+local function deleteLastClone() end
 
 -- Кнопки
 ApplySpeedButton.MouseButton1Click:Connect(function()
@@ -565,6 +633,8 @@ ToggleNoclipButton.MouseButton1Click:Connect(toggleNoclip)
 ToggleGodModeButton.MouseButton1Click:Connect(toggleGodMode)
 ToggleRotateButton.MouseButton1Click:Connect(toggleRotate)
 ApplyHPButton.MouseButton1Click:Connect(changeHP)
+ToggleCloneButton.MouseButton1Click:Connect(createClone)
+DeleteCloneButton.MouseButton1Click:Connect(deleteLastClone)
 
 -- Переключение меню
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
@@ -594,7 +664,7 @@ Player.CharacterAdded:Connect(function(character)
         toggleRotate()
         toggleRotate()
     end
-    changeHP() -- Применяем установленное HP при смене персонажа
+    changeHP()
 end)
 
 -- Инициализация
