@@ -1,4 +1,4 @@
--- Speed & Jump Hack Menu with FlyHack
+-- Speed & Jump Hack Menu with FlyHack, Noclip, GodMode and HP Changer
 local Player = game:GetService("Players").LocalPlayer
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
@@ -7,10 +7,10 @@ local RunService = game:GetService("RunService")
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game.CoreGui
 
--- Основное меню (слева по центру, без перетаскивания)
+-- Основное меню
 local MainFrame = Instance.new("Frame")
-MainFrame.Size = UDim2.new(0, 250, 0, 450) -- Увеличили высоту для FlyHack
-MainFrame.Position = UDim2.new(0, 20, 0.5, -225)
+MainFrame.Size = UDim2.new(0, 250, 0, 600)
+MainFrame.Position = UDim2.new(0, 20, 0.5, -300)
 MainFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 MainFrame.Parent = ScreenGui
 MainFrame.Active = false
@@ -24,7 +24,7 @@ UICorner.Parent = MainFrame
 -- Контейнер с прокруткой
 local ScrollFrame = Instance.new("ScrollingFrame")
 ScrollFrame.Size = UDim2.new(1, 0, 1, 0)
-ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 600) -- Увеличили область прокрутки
+ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 950)
 ScrollFrame.ScrollBarThickness = 6
 ScrollFrame.BackgroundTransparency = 1
 ScrollFrame.Parent = MainFrame
@@ -161,10 +161,106 @@ ToggleFlyButton.Font = Enum.Font.GothamBold
 ToggleFlyButton.TextSize = 14
 ToggleFlyButton.Parent = ScrollFrame
 
+-- === Noclip Section ===
+local Divider3 = Instance.new("Frame")
+Divider3.Size = UDim2.new(0.9, 0, 0, 1)
+Divider3.Position = UDim2.new(0.05, 0, 0, 460)
+Divider3.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Divider3.Parent = ScrollFrame
+
+local NoclipTitle = Instance.new("TextLabel")
+NoclipTitle.Size = UDim2.new(0.9, 0, 0, 30)
+NoclipTitle.Position = UDim2.new(0.05, 0, 0, 470)
+NoclipTitle.BackgroundTransparency = 1
+NoclipTitle.Text = "NOCLIP"
+NoclipTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+NoclipTitle.Font = Enum.Font.GothamBold
+NoclipTitle.TextSize = 18
+NoclipTitle.Parent = ScrollFrame
+
+local ToggleNoclipButton = Instance.new("TextButton")
+ToggleNoclipButton.Size = UDim2.new(0.88, 0, 0, 30)
+ToggleNoclipButton.Position = UDim2.new(0.06, 0, 0, 505)
+ToggleNoclipButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+ToggleNoclipButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleNoclipButton.Text = "DISABLED"
+ToggleNoclipButton.Font = Enum.Font.GothamBold
+ToggleNoclipButton.TextSize = 14
+ToggleNoclipButton.Parent = ScrollFrame
+
+-- === GodMode Section ===
+local Divider4 = Instance.new("Frame")
+Divider4.Size = UDim2.new(0.9, 0, 0, 1)
+Divider4.Position = UDim2.new(0.05, 0, 0, 545)
+Divider4.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Divider4.Parent = ScrollFrame
+
+local GodModeTitle = Instance.new("TextLabel")
+GodModeTitle.Size = UDim2.new(0.9, 0, 0, 30)
+GodModeTitle.Position = UDim2.new(0.05, 0, 0, 555)
+GodModeTitle.BackgroundTransparency = 1
+GodModeTitle.Text = "GODMODE"
+GodModeTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+GodModeTitle.Font = Enum.Font.GothamBold
+GodModeTitle.TextSize = 18
+GodModeTitle.Parent = ScrollFrame
+
+local ToggleGodModeButton = Instance.new("TextButton")
+ToggleGodModeButton.Size = UDim2.new(0.88, 0, 0, 30)
+ToggleGodModeButton.Position = UDim2.new(0.06, 0, 0, 590)
+ToggleGodModeButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+ToggleGodModeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleGodModeButton.Text = "DISABLED"
+ToggleGodModeButton.Font = Enum.Font.GothamBold
+ToggleGodModeButton.TextSize = 14
+ToggleGodModeButton.Parent = ScrollFrame
+
+-- Добавляем подпись под GodMode
+local GodModeHint = Instance.new("TextLabel")
+GodModeHint.Size = UDim2.new(0.88, 0, 0, 20)
+GodModeHint.Position = UDim2.new(0.06, 0, 0, 625)
+GodModeHint.BackgroundTransparency = 1
+GodModeHint.Text = "if godmode dont work or else"
+GodModeHint.TextColor3 = Color3.fromRGB(150, 150, 150)
+GodModeHint.Font = Enum.Font.Gotham
+GodModeHint.TextSize = 12
+GodModeHint.TextXAlignment = Enum.TextXAlignment.Left
+GodModeHint.Parent = ScrollFrame
+
+-- Добавляем раздел для изменения HP
+local ChangeHPTitle = Instance.new("TextLabel")
+ChangeHPTitle.Size = UDim2.new(0.9, 0, 0, 30)
+ChangeHPTitle.Position = UDim2.new(0.05, 0, 0, 650)
+ChangeHPTitle.BackgroundTransparency = 1
+ChangeHPTitle.Text = "CHANGE HP"
+ChangeHPTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+ChangeHPTitle.Font = Enum.Font.GothamBold
+ChangeHPTitle.TextSize = 16
+ChangeHPTitle.Parent = ScrollFrame
+
+local HPBox = Instance.new("TextBox")
+HPBox.Size = UDim2.new(0.88, 0, 0, 30)
+HPBox.Position = UDim2.new(0.06, 0, 0, 685)
+HPBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+HPBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+HPBox.Text = "100"
+HPBox.PlaceholderText = "Enter HP value"
+HPBox.Parent = ScrollFrame
+
+local ApplyHPButton = Instance.new("TextButton")
+ApplyHPButton.Size = UDim2.new(0.88, 0, 0, 30)
+ApplyHPButton.Position = UDim2.new(0.06, 0, 0, 720)
+ApplyHPButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+ApplyHPButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ApplyHPButton.Text = "APPLY HP"
+ApplyHPButton.Font = Enum.Font.GothamBold
+ApplyHPButton.TextSize = 14
+ApplyHPButton.Parent = ScrollFrame
+
 -- Hint
 local Hint = Instance.new("TextLabel")
 Hint.Size = UDim2.new(0.9, 0, 0, 20)
-Hint.Position = UDim2.new(0.05, 0, 0, 460)
+Hint.Position = UDim2.new(0.05, 0, 0, 760)
 Hint.BackgroundTransparency = 1
 Hint.Text = "CTRL TO TOGGLE MENU"
 Hint.TextColor3 = Color3.fromRGB(150, 150, 150)
@@ -179,7 +275,10 @@ local originalJump = 50
 local jumpEnabled = true
 local flySpeed = 50
 local flyEnabled = false
+local noclipEnabled = false
+local godModeEnabled = false
 local bodyVelocity, bodyGyro
+local noclipConnection
 
 -- Обновление скорости
 local function updateSpeed()
@@ -207,7 +306,6 @@ local function updateFlight()
     local camCFrame = workspace.CurrentCamera.CFrame
     local moveDirection = Vector3.new()
     
-    -- Управление WASD
     if UserInputService:IsKeyDown(Enum.KeyCode.W) then
         moveDirection = moveDirection + camCFrame.LookVector
     end
@@ -221,20 +319,61 @@ local function updateFlight()
         moveDirection = moveDirection - camCFrame.RightVector
     end
     
-    -- Вверх/вниз
     if UserInputService:IsKeyDown(Enum.KeyCode.Space) then
         moveDirection = moveDirection + Vector3.new(0, 1, 0)
     end
-    if UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) then
-        moveDirection = moveDirection + Vector3.new(0, -1, 0)
-    end
     
-    -- Нормализуем и применяем скорость
     if moveDirection.Magnitude > 0 then
         moveDirection = moveDirection.Unit * flySpeed
     end
     
     bodyVelocity.Velocity = moveDirection
+end
+
+-- Логика Noclip
+local function noclipLoop()
+    if noclipEnabled and Player.Character then
+        for _, part in ipairs(Player.Character:GetDescendants()) do
+            if part:IsA("BasePart") then
+                part.CanCollide = false
+            end
+        end
+    end
+end
+
+-- Функция для изменения HP
+local function changeHP()
+    local newHP = tonumber(HPBox.Text)
+    if newHP and newHP > 0 and Player.Character then
+        local humanoid = Player.Character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid.MaxHealth = newHP
+            humanoid.Health = newHP
+        end
+    else
+        HPBox.Text = "INVALID"
+        task.wait(1)
+        HPBox.Text = "100"
+    end
+end
+
+-- Логика GodMode
+local function toggleGodMode()
+    godModeEnabled = not godModeEnabled
+    if Player.Character then
+        local humanoid = Player.Character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            if godModeEnabled then
+                humanoid.MaxHealth = math.huge
+                humanoid.Health = math.huge
+            else
+                local targetHP = tonumber(HPBox.Text) or 100
+                humanoid.MaxHealth = targetHP
+                humanoid.Health = targetHP
+            end
+        end
+    end
+    ToggleGodModeButton.Text = godModeEnabled and "ENABLED" or "DISABLED"
 end
 
 local function toggleFlight()
@@ -243,30 +382,49 @@ local function toggleFlight()
     if not character then return end
     
     if flyEnabled then
-        -- Создаем BodyVelocity для управления полетом
         bodyVelocity = Instance.new("BodyVelocity")
         bodyVelocity.MaxForce = Vector3.new(4000, 4000, 4000)
         bodyVelocity.Velocity = Vector3.new(0, 0, 0)
         bodyVelocity.P = 1250
         bodyVelocity.Parent = character:FindFirstChild("HumanoidRootPart") or character:WaitForChild("HumanoidRootPart")
         
-        -- Создаем BodyGyro для стабилизации
         bodyGyro = Instance.new("BodyGyro")
         bodyGyro.MaxTorque = Vector3.new(4000, 4000, 4000)
         bodyGyro.P = 1250
         bodyGyro.CFrame = character.HumanoidRootPart.CFrame
         bodyGyro.Parent = character.HumanoidRootPart
         
-        -- Подключаем обновление полета
         RunService:BindToRenderStep("FlightUpdate", Enum.RenderPriority.Input.Value, updateFlight)
         
         ToggleFlyButton.Text = "ENABLED"
     else
-        -- Отключаем полет
         if bodyVelocity then bodyVelocity:Destroy() end
         if bodyGyro then bodyGyro:Destroy() end
         RunService:UnbindFromRenderStep("FlightUpdate")
         ToggleFlyButton.Text = "DISABLED"
+    end
+end
+
+local function toggleNoclip()
+    noclipEnabled = not noclipEnabled
+    ToggleNoclipButton.Text = noclipEnabled and "ENABLED" or "DISABLED"
+    
+    if noclipEnabled then
+        if not noclipConnection then
+            noclipConnection = RunService.Stepped:Connect(noclipLoop)
+        end
+    else
+        if noclipConnection then
+            noclipConnection:Disconnect()
+            noclipConnection = nil
+        end
+        if Player.Character then
+            for _, part in ipairs(Player.Character:GetDescendants()) do
+                if part:IsA("BasePart") then
+                    part.CanCollide = true
+                end
+            end
+        end
     end
 end
 
@@ -317,6 +475,9 @@ ApplyFlySpeedButton.MouseButton1Click:Connect(function()
 end)
 
 ToggleFlyButton.MouseButton1Click:Connect(toggleFlight)
+ToggleNoclipButton.MouseButton1Click:Connect(toggleNoclip)
+ToggleGodModeButton.MouseButton1Click:Connect(toggleGodMode)
+ApplyHPButton.MouseButton1Click:Connect(changeHP)
 
 -- Переключение меню
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
@@ -334,6 +495,15 @@ Player.CharacterAdded:Connect(function(character)
         toggleFlight()
         toggleFlight()
     end
+    if noclipEnabled then
+        toggleNoclip()
+        toggleNoclip()
+    end
+    if godModeEnabled then
+        toggleGodMode()
+        toggleGodMode()
+    end
+    changeHP() -- Применяем установленное HP при смене персонажа
 end)
 
 -- Инициализация
