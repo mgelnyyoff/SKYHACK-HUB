@@ -1,4 +1,4 @@
--- Speed & Jump Hack Menu with FlyHack, Noclip, GodMode and HP Changer
+-- Speed & Jump Hack Menu with FlyHack, Noclip, GodMode, HP Changer and Rotate Hack
 local Player = game:GetService("Players").LocalPlayer
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
@@ -24,7 +24,7 @@ UICorner.Parent = MainFrame
 -- Контейнер с прокруткой
 local ScrollFrame = Instance.new("ScrollingFrame")
 ScrollFrame.Size = UDim2.new(1, 0, 1, 0)
-ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 950)
+ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 1050)
 ScrollFrame.ScrollBarThickness = 6
 ScrollFrame.BackgroundTransparency = 1
 ScrollFrame.Parent = MainFrame
@@ -220,17 +220,63 @@ local GodModeHint = Instance.new("TextLabel")
 GodModeHint.Size = UDim2.new(0.88, 0, 0, 20)
 GodModeHint.Position = UDim2.new(0.06, 0, 0, 625)
 GodModeHint.BackgroundTransparency = 1
-GodModeHint.Text = "if godmode dont work, try - CHANGE HP"
+GodModeHint.Text = "if godmode dont worK, try - CHANGE HP"
 GodModeHint.TextColor3 = Color3.fromRGB(150, 150, 150)
 GodModeHint.Font = Enum.Font.Gotham
 GodModeHint.TextSize = 12
 GodModeHint.TextXAlignment = Enum.TextXAlignment.Left
 GodModeHint.Parent = ScrollFrame
 
+-- === Rotate Hack Section ===
+local Divider5 = Instance.new("Frame")
+Divider5.Size = UDim2.new(0.9, 0, 0, 1)
+Divider5.Position = UDim2.new(0.05, 0, 0, 655)
+Divider5.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Divider5.Parent = ScrollFrame
+
+local RotateTitle = Instance.new("TextLabel")
+RotateTitle.Size = UDim2.new(0.9, 0, 0, 30)
+RotateTitle.Position = UDim2.new(0.05, 0, 0, 665)
+RotateTitle.BackgroundTransparency = 1
+RotateTitle.Text = "ROTATE HACK"
+RotateTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+RotateTitle.Font = Enum.Font.GothamBold
+RotateTitle.TextSize = 18
+RotateTitle.Parent = ScrollFrame
+
+local RotateSpeedBox = Instance.new("TextBox")
+RotateSpeedBox.Size = UDim2.new(0.88, 0, 0, 30)
+RotateSpeedBox.Position = UDim2.new(0.06, 0, 0, 700)
+RotateSpeedBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+RotateSpeedBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+RotateSpeedBox.Text = "1000"
+RotateSpeedBox.PlaceholderText = "Rotate speed"
+RotateSpeedBox.Parent = ScrollFrame
+
+local ApplyRotateSpeedButton = Instance.new("TextButton")
+ApplyRotateSpeedButton.Size = UDim2.new(0.88, 0, 0, 30)
+ApplyRotateSpeedButton.Position = UDim2.new(0.06, 0, 0, 735)
+ApplyRotateSpeedButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+ApplyRotateSpeedButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ApplyRotateSpeedButton.Text = "APPLY ROTATE SPEED"
+ApplyRotateSpeedButton.Font = Enum.Font.GothamBold
+ApplyRotateSpeedButton.TextSize = 14
+ApplyRotateSpeedButton.Parent = ScrollFrame
+
+local ToggleRotateButton = Instance.new("TextButton")
+ToggleRotateButton.Size = UDim2.new(0.88, 0, 0, 30)
+ToggleRotateButton.Position = UDim2.new(0.06, 0, 0, 770)
+ToggleRotateButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+ToggleRotateButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleRotateButton.Text = "DISABLED"
+ToggleRotateButton.Font = Enum.Font.GothamBold
+ToggleRotateButton.TextSize = 14
+ToggleRotateButton.Parent = ScrollFrame
+
 -- Добавляем раздел для изменения HP
 local ChangeHPTitle = Instance.new("TextLabel")
 ChangeHPTitle.Size = UDim2.new(0.9, 0, 0, 30)
-ChangeHPTitle.Position = UDim2.new(0.05, 0, 0, 650)
+ChangeHPTitle.Position = UDim2.new(0.05, 0, 0, 805)
 ChangeHPTitle.BackgroundTransparency = 1
 ChangeHPTitle.Text = "CHANGE HP"
 ChangeHPTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -240,7 +286,7 @@ ChangeHPTitle.Parent = ScrollFrame
 
 local HPBox = Instance.new("TextBox")
 HPBox.Size = UDim2.new(0.88, 0, 0, 30)
-HPBox.Position = UDim2.new(0.06, 0, 0, 685)
+HPBox.Position = UDim2.new(0.06, 0, 0, 840)
 HPBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 HPBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 HPBox.Text = "100"
@@ -249,7 +295,7 @@ HPBox.Parent = ScrollFrame
 
 local ApplyHPButton = Instance.new("TextButton")
 ApplyHPButton.Size = UDim2.new(0.88, 0, 0, 30)
-ApplyHPButton.Position = UDim2.new(0.06, 0, 0, 720)
+ApplyHPButton.Position = UDim2.new(0.06, 0, 0, 875)
 ApplyHPButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
 ApplyHPButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 ApplyHPButton.Text = "APPLY HP"
@@ -260,9 +306,9 @@ ApplyHPButton.Parent = ScrollFrame
 -- Hint
 local Hint = Instance.new("TextLabel")
 Hint.Size = UDim2.new(0.9, 0, 0, 20)
-Hint.Position = UDim2.new(0.05, 0, 0, 760)
+Hint.Position = UDim2.new(0.05, 0, 0, 915)
 Hint.BackgroundTransparency = 1
-Hint.Text = "CTRL TO TOGGLE MENU"
+Hint.Text = "CTRL TO ON/OFF MENU"
 Hint.TextColor3 = Color3.fromRGB(150, 150, 150)
 Hint.Font = Enum.Font.Gotham
 Hint.TextSize = 12
@@ -277,8 +323,11 @@ local flySpeed = 50
 local flyEnabled = false
 local noclipEnabled = false
 local godModeEnabled = false
+local rotateSpeed = 1000
+local rotateEnabled = false
 local bodyVelocity, bodyGyro
 local noclipConnection
+local rotateConnection
 
 -- Обновление скорости
 local function updateSpeed()
@@ -337,6 +386,16 @@ local function noclipLoop()
             if part:IsA("BasePart") then
                 part.CanCollide = false
             end
+        end
+    end
+end
+
+-- Логика Rotate Hack
+local function rotateLoop()
+    if rotateEnabled and Player.Character then
+        local rootPart = Player.Character:FindFirstChild("HumanoidRootPart")
+        if rootPart then
+            rootPart.CFrame = rootPart.CFrame * CFrame.Angles(0, math.rad(rotateSpeed/100), 0)
         end
     end
 end
@@ -428,6 +487,22 @@ local function toggleNoclip()
     end
 end
 
+local function toggleRotate()
+    rotateEnabled = not rotateEnabled
+    ToggleRotateButton.Text = rotateEnabled and "ENABLED" or "DISABLED"
+    
+    if rotateEnabled then
+        if not rotateConnection then
+            rotateConnection = RunService.Heartbeat:Connect(rotateLoop)
+        end
+    else
+        if rotateConnection then
+            rotateConnection:Disconnect()
+            rotateConnection = nil
+        end
+    end
+end
+
 -- Кнопки
 ApplySpeedButton.MouseButton1Click:Connect(function()
     local newSpeed = tonumber(SpeedBox.Text)
@@ -474,9 +549,21 @@ ApplyFlySpeedButton.MouseButton1Click:Connect(function()
     end
 end)
 
+ApplyRotateSpeedButton.MouseButton1Click:Connect(function()
+    local newSpeed = tonumber(RotateSpeedBox.Text)
+    if newSpeed and newSpeed > 0 then
+        rotateSpeed = newSpeed
+    else
+        RotateSpeedBox.Text = "INVALID"
+        task.wait(1)
+        RotateSpeedBox.Text = tostring(rotateSpeed)
+    end
+end)
+
 ToggleFlyButton.MouseButton1Click:Connect(toggleFlight)
 ToggleNoclipButton.MouseButton1Click:Connect(toggleNoclip)
 ToggleGodModeButton.MouseButton1Click:Connect(toggleGodMode)
+ToggleRotateButton.MouseButton1Click:Connect(toggleRotate)
 ApplyHPButton.MouseButton1Click:Connect(changeHP)
 
 -- Переключение меню
@@ -502,6 +589,10 @@ Player.CharacterAdded:Connect(function(character)
     if godModeEnabled then
         toggleGodMode()
         toggleGodMode()
+    end
+    if rotateEnabled then
+        toggleRotate()
+        toggleRotate()
     end
     changeHP() -- Применяем установленное HP при смене персонажа
 end)
