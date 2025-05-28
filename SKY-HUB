@@ -215,12 +215,12 @@ ToggleGodModeButton.Font = Enum.Font.GothamBold
 ToggleGodModeButton.TextSize = 14
 ToggleGodModeButton.Parent = ScrollFrame
 
--- Добавляем подпись под GodMode
+-- Измененная подпись под GodMode
 local GodModeHint = Instance.new("TextLabel")
 GodModeHint.Size = UDim2.new(0.88, 0, 0, 20)
 GodModeHint.Position = UDim2.new(0.06, 0, 0, 625)
 GodModeHint.BackgroundTransparency = 1
-GodModeHint.Text = "if godmode dont work or else"
+GodModeHint.Text = "if godmode dont work, try - CHANGE HP"
 GodModeHint.TextColor3 = Color3.fromRGB(150, 150, 150)
 GodModeHint.Font = Enum.Font.Gotham
 GodModeHint.TextSize = 12
