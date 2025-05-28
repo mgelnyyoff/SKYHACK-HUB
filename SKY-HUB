@@ -1,4 +1,4 @@
--- Speed & Jump Hack Menu with FlyHack, Noclip, GodMode and HP Changer
+-- Speed & Jump Hack Menu with SwimHack, Noclip, GodMode and HP Changer
 local Player = game:GetService("Players").LocalPlayer
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
@@ -115,51 +115,51 @@ ToggleJumpButton.Font = Enum.Font.GothamBold
 ToggleJumpButton.TextSize = 14
 ToggleJumpButton.Parent = ScrollFrame
 
--- === FlyHack Section ===
+-- === SwimHack Section ===
 local Divider2 = Instance.new("Frame")
 Divider2.Size = UDim2.new(0.9, 0, 0, 1)
 Divider2.Position = UDim2.new(0.05, 0, 0, 305)
 Divider2.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 Divider2.Parent = ScrollFrame
 
-local FlyTitle = Instance.new("TextLabel")
-FlyTitle.Size = UDim2.new(0.9, 0, 0, 30)
-FlyTitle.Position = UDim2.new(0.05, 0, 0, 315)
-FlyTitle.BackgroundTransparency = 1
-FlyTitle.Text = "FLYHACK"
-FlyTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-FlyTitle.Font = Enum.Font.GothamBold
-FlyTitle.TextSize = 18
-FlyTitle.Parent = ScrollFrame
+local SwimTitle = Instance.new("TextLabel")
+SwimTitle.Size = UDim2.new(0.9, 0, 0, 30)
+SwimTitle.Position = UDim2.new(0.05, 0, 0, 315)
+SwimTitle.BackgroundTransparency = 1
+SwimTitle.Text = "SWIMHACK"
+SwimTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+SwimTitle.Font = Enum.Font.GothamBold
+SwimTitle.TextSize = 18
+SwimTitle.Parent = ScrollFrame
 
-local FlySpeedBox = Instance.new("TextBox")
-FlySpeedBox.Size = UDim2.new(0.88, 0, 0, 30)
-FlySpeedBox.Position = UDim2.new(0.06, 0, 0, 350)
-FlySpeedBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-FlySpeedBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-FlySpeedBox.Text = "50"
-FlySpeedBox.PlaceholderText = "Fly speed"
-FlySpeedBox.Parent = ScrollFrame
+local SwimSpeedBox = Instance.new("TextBox")
+SwimSpeedBox.Size = UDim2.new(0.88, 0, 0, 30)
+SwimSpeedBox.Position = UDim2.new(0.06, 0, 0, 350)
+SwimSpeedBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+SwimSpeedBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+SwimSpeedBox.Text = "25"
+SwimSpeedBox.PlaceholderText = "Swim speed"
+SwimSpeedBox.Parent = ScrollFrame
 
-local ApplyFlySpeedButton = Instance.new("TextButton")
-ApplyFlySpeedButton.Size = UDim2.new(0.88, 0, 0, 30)
-ApplyFlySpeedButton.Position = UDim2.new(0.06, 0, 0, 385)
-ApplyFlySpeedButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-ApplyFlySpeedButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-ApplyFlySpeedButton.Text = "APPLY FLY SPEED"
-ApplyFlySpeedButton.Font = Enum.Font.GothamBold
-ApplyFlySpeedButton.TextSize = 14
-ApplyFlySpeedButton.Parent = ScrollFrame
+local ApplySwimSpeedButton = Instance.new("TextButton")
+ApplySwimSpeedButton.Size = UDim2.new(0.88, 0, 0, 30)
+ApplySwimSpeedButton.Position = UDim2.new(0.06, 0, 0, 385)
+ApplySwimSpeedButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+ApplySwimSpeedButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ApplySwimSpeedButton.Text = "APPLY SWIM SPEED"
+ApplySwimSpeedButton.Font = Enum.Font.GothamBold
+ApplySwimSpeedButton.TextSize = 14
+ApplySwimSpeedButton.Parent = ScrollFrame
 
-local ToggleFlyButton = Instance.new("TextButton")
-ToggleFlyButton.Size = UDim2.new(0.88, 0, 0, 30)
-ToggleFlyButton.Position = UDim2.new(0.06, 0, 0, 420)
-ToggleFlyButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-ToggleFlyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-ToggleFlyButton.Text = "DISABLED"
-ToggleFlyButton.Font = Enum.Font.GothamBold
-ToggleFlyButton.TextSize = 14
-ToggleFlyButton.Parent = ScrollFrame
+local ToggleSwimButton = Instance.new("TextButton")
+ToggleSwimButton.Size = UDim2.new(0.88, 0, 0, 30)
+ToggleSwimButton.Position = UDim2.new(0.06, 0, 0, 420)
+ToggleSwimButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+ToggleSwimButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleSwimButton.Text = "DISABLED"
+ToggleSwimButton.Font = Enum.Font.GothamBold
+ToggleSwimButton.TextSize = 14
+ToggleSwimButton.Parent = ScrollFrame
 
 -- === Noclip Section ===
 local Divider3 = Instance.new("Frame")
@@ -215,12 +215,12 @@ ToggleGodModeButton.Font = Enum.Font.GothamBold
 ToggleGodModeButton.TextSize = 14
 ToggleGodModeButton.Parent = ScrollFrame
 
--- Измененная подпись под GodMode
+-- Добавляем подпись под GodMode
 local GodModeHint = Instance.new("TextLabel")
 GodModeHint.Size = UDim2.new(0.88, 0, 0, 20)
 GodModeHint.Position = UDim2.new(0.06, 0, 0, 625)
 GodModeHint.BackgroundTransparency = 1
-GodModeHint.Text = "if godmode dont work, try - CHANGE HP"
+GodModeHint.Text = "if godmode dont work or else"
 GodModeHint.TextColor3 = Color3.fromRGB(150, 150, 150)
 GodModeHint.Font = Enum.Font.Gotham
 GodModeHint.TextSize = 12
@@ -262,7 +262,7 @@ local Hint = Instance.new("TextLabel")
 Hint.Size = UDim2.new(0.9, 0, 0, 20)
 Hint.Position = UDim2.new(0.05, 0, 0, 760)
 Hint.BackgroundTransparency = 1
-Hint.Text = "CTRL TO OPEN/CLOSE MENU"
+Hint.Text = "CTRL TO TOGGLE MENU"
 Hint.TextColor3 = Color3.fromRGB(150, 150, 150)
 Hint.Font = Enum.Font.Gotham
 Hint.TextSize = 12
@@ -273,11 +273,11 @@ local originalSpeed = 16
 local speedEnabled = true
 local originalJump = 50
 local jumpEnabled = true
-local flySpeed = 50
-local flyEnabled = false
+local swimSpeed = 25
+local swimEnabled = false
 local noclipEnabled = false
 local godModeEnabled = false
-local bodyVelocity, bodyGyro
+local bodyVelocity, swimForce, swimDamping
 local noclipConnection
 
 -- Обновление скорости
@@ -296,9 +296,9 @@ local function updateJump()
     end
 end
 
--- Логика полета
-local function updateFlight()
-    if not flyEnabled or not Player.Character then return end
+-- Логика плавания
+local function updateSwimming()
+    if not swimEnabled or not Player.Character then return end
     
     local rootPart = Player.Character:FindFirstChild("HumanoidRootPart")
     if not rootPart or not bodyVelocity then return end
@@ -319,15 +319,88 @@ local function updateFlight()
         moveDirection = moveDirection - camCFrame.RightVector
     end
     
+    -- Медленное вертикальное движение для имитации плавания
     if UserInputService:IsKeyDown(Enum.KeyCode.Space) then
-        moveDirection = moveDirection + Vector3.new(0, 1, 0)
+        moveDirection = moveDirection + Vector3.new(0, 0.5, 0)
+    end
+    if UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) then
+        moveDirection = moveDirection - Vector3.new(0, 0.5, 0)
     end
     
     if moveDirection.Magnitude > 0 then
-        moveDirection = moveDirection.Unit * flySpeed
+        moveDirection = moveDirection.Unit * swimSpeed * 0.7
     end
     
     bodyVelocity.Velocity = moveDirection
+    
+    -- Имитация сопротивления воды
+    rootPart.Velocity = rootPart.Velocity * 0.9
+end
+
+local function toggleSwimming()
+    swimEnabled = not swimEnabled
+    local character = Player.Character
+    if not character then return end
+    
+    if swimEnabled then
+        -- Создаем эффект плавания
+        bodyVelocity = Instance.new("BodyVelocity")
+        bodyVelocity.MaxForce = Vector3.new(4000, 4000, 4000)
+        bodyVelocity.Velocity = Vector3.new(0, 0, 0)
+        bodyVelocity.P = 1250
+        
+        -- Добавляем плавучесть (имитация воды)
+        swimForce = Instance.new("BodyForce")
+        swimForce.Name = "SwimForce"
+        swimForce.Force = Vector3.new(0, character:GetMass() * workspace.Gravity * 0.8, 0)
+        
+        -- Добавляем демпфирование (сопротивление воды)
+        swimDamping = Instance.new("BodyAngularVelocity")
+        swimDamping.Name = "SwimDamping"
+        swimDamping.MaxTorque = Vector3.new(4000, 4000, 4000)
+        swimDamping.AngularVelocity = Vector3.new(0, 0, 0)
+        swimDamping.P = 500
+        
+        local rootPart = character:FindFirstChild("HumanoidRootPart") or character:WaitForChild("HumanoidRootPart")
+        bodyVelocity.Parent = rootPart
+        swimForce.Parent = rootPart
+        swimDamping.Parent = rootPart
+        
+        -- Изменяем состояние Humanoid для плавания
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown, false)
+            humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll, false)
+            humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+        end
+        
+        RunService:BindToRenderStep("SwimUpdate", Enum.RenderPriority.Input.Value, updateSwimming)
+        
+        ToggleSwimButton.Text = "ENABLED"
+    else
+        if bodyVelocity then bodyVelocity:Destroy() end
+        if swimForce then swimForce:Destroy() end
+        if swimDamping then swimDamping:Destroy() end
+        
+        local rootPart = character:FindFirstChild("HumanoidRootPart")
+        if rootPart then
+            for _, v in ipairs(rootPart:GetChildren()) do
+                if v.Name == "SwimForce" or v.Name == "SwimDamping" then
+                    v:Destroy()
+                end
+            end
+        end
+        
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown, true)
+            humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll, true)
+            humanoid:ChangeState(Enum.HumanoidStateType.Running)
+        end
+        
+        RunService:UnbindFromRenderStep("SwimUpdate")
+        ToggleSwimButton.Text = "DISABLED"
+    end
 end
 
 -- Логика Noclip
@@ -374,35 +447,6 @@ local function toggleGodMode()
         end
     end
     ToggleGodModeButton.Text = godModeEnabled and "ENABLED" or "DISABLED"
-end
-
-local function toggleFlight()
-    flyEnabled = not flyEnabled
-    local character = Player.Character
-    if not character then return end
-    
-    if flyEnabled then
-        bodyVelocity = Instance.new("BodyVelocity")
-        bodyVelocity.MaxForce = Vector3.new(4000, 4000, 4000)
-        bodyVelocity.Velocity = Vector3.new(0, 0, 0)
-        bodyVelocity.P = 1250
-        bodyVelocity.Parent = character:FindFirstChild("HumanoidRootPart") or character:WaitForChild("HumanoidRootPart")
-        
-        bodyGyro = Instance.new("BodyGyro")
-        bodyGyro.MaxTorque = Vector3.new(4000, 4000, 4000)
-        bodyGyro.P = 1250
-        bodyGyro.CFrame = character.HumanoidRootPart.CFrame
-        bodyGyro.Parent = character.HumanoidRootPart
-        
-        RunService:BindToRenderStep("FlightUpdate", Enum.RenderPriority.Input.Value, updateFlight)
-        
-        ToggleFlyButton.Text = "ENABLED"
-    else
-        if bodyVelocity then bodyVelocity:Destroy() end
-        if bodyGyro then bodyGyro:Destroy() end
-        RunService:UnbindFromRenderStep("FlightUpdate")
-        ToggleFlyButton.Text = "DISABLED"
-    end
 end
 
 local function toggleNoclip()
@@ -463,18 +507,18 @@ ToggleJumpButton.MouseButton1Click:Connect(function()
     updateJump()
 end)
 
-ApplyFlySpeedButton.MouseButton1Click:Connect(function()
-    local newSpeed = tonumber(FlySpeedBox.Text)
+ApplySwimSpeedButton.MouseButton1Click:Connect(function()
+    local newSpeed = tonumber(SwimSpeedBox.Text)
     if newSpeed and newSpeed > 0 then
-        flySpeed = newSpeed
+        swimSpeed = newSpeed
     else
-        FlySpeedBox.Text = "INVALID"
+        SwimSpeedBox.Text = "INVALID"
         task.wait(1)
-        FlySpeedBox.Text = tostring(flySpeed)
+        SwimSpeedBox.Text = tostring(swimSpeed)
     end
 end)
 
-ToggleFlyButton.MouseButton1Click:Connect(toggleFlight)
+ToggleSwimButton.MouseButton1Click:Connect(toggleSwimming)
 ToggleNoclipButton.MouseButton1Click:Connect(toggleNoclip)
 ToggleGodModeButton.MouseButton1Click:Connect(toggleGodMode)
 ApplyHPButton.MouseButton1Click:Connect(changeHP)
@@ -491,9 +535,9 @@ Player.CharacterAdded:Connect(function(character)
     task.wait(0.5)
     updateSpeed()
     updateJump()
-    if flyEnabled then
-        toggleFlight()
-        toggleFlight()
+    if swimEnabled then
+        toggleSwimming()
+        toggleSwimming()
     end
     if noclipEnabled then
         toggleNoclip()
@@ -503,7 +547,7 @@ Player.CharacterAdded:Connect(function(character)
         toggleGodMode()
         toggleGodMode()
     end
-    changeHP() -- Применяем установленное HP при смене персонажа
+    changeHP()
 end)
 
 -- Инициализация
