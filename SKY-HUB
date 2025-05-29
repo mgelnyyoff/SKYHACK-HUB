@@ -319,6 +319,7 @@ TeleportTitle.Font = Enum.Font.GothamBold
 TeleportTitle.TextSize = 18
 TeleportTitle.Parent = ScrollFrame
 
+-- Mouse Teleport
 local ToggleTeleportButton = Instance.new("TextButton")
 ToggleTeleportButton.Size = UDim2.new(0.88, 0, 0, 30)
 ToggleTeleportButton.Position = UDim2.new(0.06, 0, 0, 960)
@@ -328,6 +329,7 @@ ToggleTeleportButton.Text = "DISABLED"
 ToggleTeleportButton.Font = Enum.Font.GothamBold
 ToggleTeleportButton.TextSize = 14
 ToggleTeleportButton.Parent = ScrollFrame
+
 
 local TeleportHint = Instance.new("TextLabel")
 TeleportHint.Size = UDim2.new(0.88, 0, 0, 20)
@@ -340,16 +342,47 @@ TeleportHint.TextSize = 12
 TeleportHint.TextXAlignment = Enum.TextXAlignment.Left
 TeleportHint.Parent = ScrollFrame
 
+-- Player Teleport Section
+local PlayerTeleportTitle = Instance.new("TextLabel")
+PlayerTeleportTitle.Size = UDim2.new(0.9, 0, 0, 30)
+PlayerTeleportTitle.Position = UDim2.new(0.05, 0, 0, 1020)
+PlayerTeleportTitle.BackgroundTransparency = 1
+PlayerTeleportTitle.Text = "TELEPORT TO PLAYER"
+PlayerTeleportTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerTeleportTitle.Font = Enum.Font.GothamBold
+PlayerTeleportTitle.TextSize = 16
+PlayerTeleportTitle.Parent = ScrollFrame
+
+local PlayerNameBox = Instance.new("TextBox")
+PlayerNameBox.Size = UDim2.new(0.88, 0, 0, 30)
+PlayerNameBox.Position = UDim2.new(0.06, 0, 0, 1055)
+PlayerNameBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+PlayerNameBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerNameBox.Text = ""
+PlayerNameBox.PlaceholderText = "Enter player username"
+PlayerNameBox.Parent = ScrollFrame
+
+local TeleportPlayerButton = Instance.new("TextButton")
+TeleportPlayerButton.Size = UDim2.new(0.88, 0, 0, 30)
+TeleportPlayerButton.Position = UDim2.new(0.06, 0, 0, 1090)
+TeleportPlayerButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+TeleportPlayerButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TeleportPlayerButton.Text = "TELEPORT TO PLAYER"
+TeleportPlayerButton.Font = Enum.Font.GothamBold
+TeleportPlayerButton.TextSize = 14
+TeleportPlayerButton.Parent = ScrollFrame
+TeleportPlayerButton.MouseButton1Click:Connect(teleportToPlayer)
+
 -- === IN PROGRESS Section ===
 local Divider7 = Instance.new("Frame")
 Divider7.Size = UDim2.new(0.9, 0, 0, 1)
-Divider7.Position = UDim2.new(0.05, 0, 0, 1025)
+Divider7.Position = UDim2.new(0.05, 0, 0, 1125)
 Divider7.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 Divider7.Parent = ScrollFrame
 
 local InProgressLabel = Instance.new("TextLabel")
 InProgressLabel.Size = UDim2.new(0.9, 0, 0, 30)
-InProgressLabel.Position = UDim2.new(0.05, 0, 0, 1035)
+InProgressLabel.Position = UDim2.new(0.05, 0, 0, 1135)
 InProgressLabel.BackgroundTransparency = 1
 InProgressLabel.Text = "IN PROGRESS..."
 InProgressLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -360,7 +393,7 @@ InProgressLabel.Parent = ScrollFrame
 -- === Clone Section (DISABLED) ===
 local CloneTitle = Instance.new("TextLabel")
 CloneTitle.Size = UDim2.new(0.9, 0, 0, 30)
-CloneTitle.Position = UDim2.new(0.05, 0, 0, 1070)
+CloneTitle.Position = UDim2.new(0.05, 0, 0, 1170)
 CloneTitle.BackgroundTransparency = 1
 CloneTitle.Text = "CLONE (DISABLED)"
 CloneTitle.TextColor3 = Color3.fromRGB(150, 150, 150)
@@ -370,7 +403,7 @@ CloneTitle.Parent = ScrollFrame
 
 local CloneCountBox = Instance.new("TextBox")
 CloneCountBox.Size = UDim2.new(0.88, 0, 0, 30)
-CloneCountBox.Position = UDim2.new(0.06, 0, 0, 1105)
+CloneCountBox.Position = UDim2.new(0.06, 0, 0, 1205)
 CloneCountBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 CloneCountBox.TextColor3 = Color3.fromRGB(100, 100, 100)
 CloneCountBox.Text = "1"
@@ -380,7 +413,7 @@ CloneCountBox.Parent = ScrollFrame
 
 local ToggleCloneButton = Instance.new("TextButton")
 ToggleCloneButton.Size = UDim2.new(0.88, 0, 0, 30)
-ToggleCloneButton.Position = UDim2.new(0.06, 0, 0, 1140)
+ToggleCloneButton.Position = UDim2.new(0.06, 0, 0, 1240)
 ToggleCloneButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 ToggleCloneButton.TextColor3 = Color3.fromRGB(100, 100, 100)
 ToggleCloneButton.Text = "DISABLED"
@@ -390,9 +423,10 @@ ToggleCloneButton.AutoButtonColor = false
 ToggleCloneButton.Active = false
 ToggleCloneButton.Parent = ScrollFrame
 
+
 local DeleteCloneButton = Instance.new("TextButton")
 DeleteCloneButton.Size = UDim2.new(0.88, 0, 0, 30)
-DeleteCloneButton.Position = UDim2.new(0.06, 0, 0, 1175)
+DeleteCloneButton.Position = UDim2.new(0.06, 0, 0, 1275)
 DeleteCloneButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 DeleteCloneButton.TextColor3 = Color3.fromRGB(100, 100, 100)
 DeleteCloneButton.Text = "DISABLED"
@@ -405,7 +439,7 @@ DeleteCloneButton.Parent = ScrollFrame
 -- Hint
 local Hint = Instance.new("TextLabel")
 Hint.Size = UDim2.new(0.9, 0, 0, 20)
-Hint.Position = UDim2.new(0.05, 0, 0, 1215)
+Hint.Position = UDim2.new(0.05, 0, 0, 1315)
 Hint.BackgroundTransparency = 1
 Hint.Text = "CTRL TO TOGGLE MENU"
 Hint.TextColor3 = Color3.fromRGB(150, 150, 150)
@@ -651,111 +685,49 @@ local function toggleTeleport()
     end
 end
 
--- Пустые функции для кнопок клонирования (они отключены)
-local function createClone() end
-local function deleteLastClone() end
-
--- Кнопки
-ApplySpeedButton.MouseButton1Click:Connect(function()
-    local newSpeed = tonumber(SpeedBox.Text)
-    if newSpeed and newSpeed > 0 then
-        originalSpeed = newSpeed
-        updateSpeed()
-    else
-        SpeedBox.Text = "INVALID"
-        task.wait(1)
-        SpeedBox.Text = tostring(originalSpeed)
+-- Function to teleport to player
+local function teleportToPlayer()
+    local targetName = PlayerNameBox.Text
+    if targetName == "" then return end
+    
+    local targetPlayer
+    for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+        if player.Name:lower():find(targetName:lower()) or player.DisplayName:lower():find(targetName:lower()) then
+            targetPlayer = player
+            break
+        end
     end
-end)
-
-ToggleSpeedButton.MouseButton1Click:Connect(function()
-    speedEnabled = not speedEnabled
-    updateSpeed()
-end)
-
-ApplyJumpButton.MouseButton1Click:Connect(function()
-    local newJump = tonumber(JumpBox.Text)
-    if newJump and newJump > 0 then
-        originalJump = newJump
-        updateJump()
-    else
-        JumpBox.Text = "INVALID"
-        task.wait(1)
-        JumpBox.Text = tostring(originalJump)
+    
+    if not targetPlayer then
+        PlayerNameBox.Text = "PLAYER NOT FOUND"
+        task.wait(1.5)
+        PlayerNameBox.Text = ""
+        return
     end
-end)
-
-ToggleJumpButton.MouseButton1Click:Connect(function()
-    jumpEnabled = not jumpEnabled
-    updateJump()
-end)
-
-ApplyFlySpeedButton.MouseButton1Click:Connect(function()
-    local newSpeed = tonumber(FlySpeedBox.Text)
-    if newSpeed and newSpeed > 0 then
-        flySpeed = newSpeed
-    else
-        FlySpeedBox.Text = "INVALID"
-        task.wait(1)
-        FlySpeedBox.Text = tostring(flySpeed)
+    
+    local targetCharacter = targetPlayer.Character
+    if not targetCharacter then
+        PlayerNameBox.Text = "NO CHARACTER"
+        task.wait(1.5)
+        PlayerNameBox.Text = ""
+        return
     end
-end)
-
-ApplyRotateSpeedButton.MouseButton1Click:Connect(function()
-    local newSpeed = tonumber(RotateSpeedBox.Text)
-    if newSpeed and newSpeed > 0 then
-        rotateSpeed = newSpeed
-    else
-        RotateSpeedBox.Text = "INVALID"
-        task.wait(1)
-        RotateSpeedBox.Text = tostring(rotateSpeed)
+    
+    local humanoidRootPart = targetCharacter:FindFirstChild("HumanoidRootPart")
+    if not humanoidRootPart then
+        PlayerNameBox.Text = "NO ROOT PART"
+        task.wait(1.5)
+        PlayerNameBox.Text = ""
+        return
     end
-end)
-
-ToggleFlyButton.MouseButton1Click:Connect(toggleFlight)
-ToggleNoclipButton.MouseButton1Click:Connect(toggleNoclip)
-ToggleGodModeButton.MouseButton1Click:Connect(toggleGodMode)
-ToggleRotateButton.MouseButton1Click:Connect(toggleRotate)
-ToggleTeleportButton.MouseButton1Click:Connect(toggleTeleport)
-ApplyHPButton.MouseButton1Click:Connect(changeHP)
-ToggleCloneButton.MouseButton1Click:Connect(createClone)
-DeleteCloneButton.MouseButton1Click:Connect(deleteLastClone)
-
--- Переключение меню
-UserInputService.InputBegan:Connect(function(input, gameProcessed)
-    if not gameProcessed and input.KeyCode == Enum.KeyCode.LeftControl then
-        MainFrame.Visible = not MainFrame.Visible
+    
+    if Player.Character then
+        local myRoot = Player.Character:FindFirstChild("HumanoidRootPart")
+        if myRoot then
+            myRoot.CFrame = humanoidRootPart.CFrame * CFrame.new(0, 0, 3) -- Teleport behind the player
+            PlayerNameBox.Text = "TELEPORTED!"
+            task.wait(1.5)
+            PlayerNameBox.Text = targetPlayer.Name
+        end
     end
-end)
-
--- При смене персонажа
-Player.CharacterAdded:Connect(function(character)
-    task.wait(0.5)
-    updateSpeed()
-    updateJump()
-    if flyEnabled then
-        toggleFlight()
-        toggleFlight()
-    end
-    if noclipEnabled then
-        toggleNoclip()
-        toggleNoclip()
-    end
-    if godModeEnabled then
-        toggleGodMode()
-        toggleGodMode()
-    end
-    if rotateEnabled then
-        toggleRotate()
-        toggleRotate()
-    end
-    if teleportEnabled then
-        toggleTeleport()
-        toggleTeleport()
-    end
-    changeHP()
-end)
-
--- Инициализация
-updateSpeed()
-updateJump()
+end
