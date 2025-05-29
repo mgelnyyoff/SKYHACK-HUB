@@ -1,4 +1,4 @@
--- Speed & Jump Hack Menu with FlyHack, Noclip, GodMode, HP Changer, Rotate Hack and Clone
+-- Speed & Jump Hack Menu with FlyHack, Noclip, GodMode, HP Changer, Rotate Hack, Clone and Teleport
 local Player = game:GetService("Players").LocalPlayer
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
@@ -24,7 +24,7 @@ UICorner.Parent = MainFrame
 -- Контейнер с прокруткой
 local ScrollFrame = Instance.new("ScrollingFrame")
 ScrollFrame.Size = UDim2.new(1, 0, 1, 0)
-ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 1150)
+ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 1200)
 ScrollFrame.ScrollBarThickness = 6
 ScrollFrame.BackgroundTransparency = 1
 ScrollFrame.Parent = MainFrame
@@ -302,16 +302,54 @@ ApplyHPButton.Font = Enum.Font.GothamBold
 ApplyHPButton.TextSize = 14
 ApplyHPButton.Parent = ScrollFrame
 
--- === IN PROGRESS Section ===
+-- === Teleport Section ===
 local Divider6 = Instance.new("Frame")
 Divider6.Size = UDim2.new(0.9, 0, 0, 1)
 Divider6.Position = UDim2.new(0.05, 0, 0, 915)
 Divider6.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 Divider6.Parent = ScrollFrame
 
+local TeleportTitle = Instance.new("TextLabel")
+TeleportTitle.Size = UDim2.new(0.9, 0, 0, 30)
+TeleportTitle.Position = UDim2.new(0.05, 0, 0, 925)
+TeleportTitle.BackgroundTransparency = 1
+TeleportTitle.Text = "TELEPORT"
+TeleportTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+TeleportTitle.Font = Enum.Font.GothamBold
+TeleportTitle.TextSize = 18
+TeleportTitle.Parent = ScrollFrame
+
+local ToggleTeleportButton = Instance.new("TextButton")
+ToggleTeleportButton.Size = UDim2.new(0.88, 0, 0, 30)
+ToggleTeleportButton.Position = UDim2.new(0.06, 0, 0, 960)
+ToggleTeleportButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+ToggleTeleportButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleTeleportButton.Text = "DISABLED"
+ToggleTeleportButton.Font = Enum.Font.GothamBold
+ToggleTeleportButton.TextSize = 14
+ToggleTeleportButton.Parent = ScrollFrame
+
+local TeleportHint = Instance.new("TextLabel")
+TeleportHint.Size = UDim2.new(0.88, 0, 0, 20)
+TeleportHint.Position = UDim2.new(0.06, 0, 0, 995)
+TeleportHint.BackgroundTransparency = 1
+TeleportHint.Text = "Left click to teleport"
+TeleportHint.TextColor3 = Color3.fromRGB(150, 150, 150)
+TeleportHint.Font = Enum.Font.Gotham
+TeleportHint.TextSize = 12
+TeleportHint.TextXAlignment = Enum.TextXAlignment.Left
+TeleportHint.Parent = ScrollFrame
+
+-- === IN PROGRESS Section ===
+local Divider7 = Instance.new("Frame")
+Divider7.Size = UDim2.new(0.9, 0, 0, 1)
+Divider7.Position = UDim2.new(0.05, 0, 0, 1025)
+Divider7.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Divider7.Parent = ScrollFrame
+
 local InProgressLabel = Instance.new("TextLabel")
 InProgressLabel.Size = UDim2.new(0.9, 0, 0, 30)
-InProgressLabel.Position = UDim2.new(0.05, 0, 0, 925)
+InProgressLabel.Position = UDim2.new(0.05, 0, 0, 1035)
 InProgressLabel.BackgroundTransparency = 1
 InProgressLabel.Text = "IN PROGRESS..."
 InProgressLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -322,7 +360,7 @@ InProgressLabel.Parent = ScrollFrame
 -- === Clone Section (DISABLED) ===
 local CloneTitle = Instance.new("TextLabel")
 CloneTitle.Size = UDim2.new(0.9, 0, 0, 30)
-CloneTitle.Position = UDim2.new(0.05, 0, 0, 960)
+CloneTitle.Position = UDim2.new(0.05, 0, 0, 1070)
 CloneTitle.BackgroundTransparency = 1
 CloneTitle.Text = "CLONE (DISABLED)"
 CloneTitle.TextColor3 = Color3.fromRGB(150, 150, 150)
@@ -332,7 +370,7 @@ CloneTitle.Parent = ScrollFrame
 
 local CloneCountBox = Instance.new("TextBox")
 CloneCountBox.Size = UDim2.new(0.88, 0, 0, 30)
-CloneCountBox.Position = UDim2.new(0.06, 0, 0, 995)
+CloneCountBox.Position = UDim2.new(0.06, 0, 0, 1105)
 CloneCountBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 CloneCountBox.TextColor3 = Color3.fromRGB(100, 100, 100)
 CloneCountBox.Text = "1"
@@ -342,7 +380,7 @@ CloneCountBox.Parent = ScrollFrame
 
 local ToggleCloneButton = Instance.new("TextButton")
 ToggleCloneButton.Size = UDim2.new(0.88, 0, 0, 30)
-ToggleCloneButton.Position = UDim2.new(0.06, 0, 0, 1030)
+ToggleCloneButton.Position = UDim2.new(0.06, 0, 0, 1140)
 ToggleCloneButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 ToggleCloneButton.TextColor3 = Color3.fromRGB(100, 100, 100)
 ToggleCloneButton.Text = "DISABLED"
@@ -354,7 +392,7 @@ ToggleCloneButton.Parent = ScrollFrame
 
 local DeleteCloneButton = Instance.new("TextButton")
 DeleteCloneButton.Size = UDim2.new(0.88, 0, 0, 30)
-DeleteCloneButton.Position = UDim2.new(0.06, 0, 0, 1065)
+DeleteCloneButton.Position = UDim2.new(0.06, 0, 0, 1175)
 DeleteCloneButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 DeleteCloneButton.TextColor3 = Color3.fromRGB(100, 100, 100)
 DeleteCloneButton.Text = "DISABLED"
@@ -367,7 +405,7 @@ DeleteCloneButton.Parent = ScrollFrame
 -- Hint
 local Hint = Instance.new("TextLabel")
 Hint.Size = UDim2.new(0.9, 0, 0, 20)
-Hint.Position = UDim2.new(0.05, 0, 0, 1105)
+Hint.Position = UDim2.new(0.05, 0, 0, 1215)
 Hint.BackgroundTransparency = 1
 Hint.Text = "CTRL TO TOGGLE MENU"
 Hint.TextColor3 = Color3.fromRGB(150, 150, 150)
@@ -386,9 +424,11 @@ local noclipEnabled = false
 local godModeEnabled = false
 local rotateSpeed = 1000
 local rotateEnabled = false
+local teleportEnabled = false
 local bodyVelocity, bodyGyro
 local noclipConnection
 local rotateConnection
+local teleportConnection
 
 -- Обновление скорости
 local function updateSpeed()
@@ -459,6 +499,29 @@ local function rotateLoop()
             rootPart.CFrame = rootPart.CFrame * CFrame.Angles(0, math.rad(rotateSpeed/100), 0)
         end
     end
+end
+
+-- Логика телепортации
+local function teleportToMouse()
+    if not teleportEnabled or not Player.Character then return end
+    
+    local humanoidRootPart = Player.Character:FindFirstChild("HumanoidRootPart")
+    if not humanoidRootPart then return end
+    
+    local mouse = Player:GetMouse()
+    local target = mouse.Hit.Position
+    
+    -- Проверяем, чтобы телепортация была на землю, а не в воздух
+    local raycastParams = RaycastParams.new()
+    raycastParams.FilterDescendantsInstances = {Player.Character}
+    raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+    
+    local raycastResult = workspace:Raycast(target + Vector3.new(0, 100, 0), Vector3.new(0, -200, 0), raycastParams)
+    if raycastResult then
+        target = raycastResult.Position + Vector3.new(0, 3, 0) -- Немного выше поверхности
+    end
+    
+    humanoidRootPart.CFrame = CFrame.new(target)
 end
 
 -- Функция для изменения HP
@@ -567,6 +630,27 @@ local function toggleRotate()
     end
 end
 
+-- Логика телепортации
+local function toggleTeleport()
+    teleportEnabled = not teleportEnabled
+    ToggleTeleportButton.Text = teleportEnabled and "ENABLED" or "DISABLED"
+    
+    if teleportEnabled then
+        if not teleportConnection then
+            teleportConnection = UserInputService.InputBegan:Connect(function(input, gameProcessed)
+                if not gameProcessed and input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    teleportToMouse()
+                end
+            end)
+        end
+    else
+        if teleportConnection then
+            teleportConnection:Disconnect()
+            teleportConnection = nil
+        end
+    end
+end
+
 -- Пустые функции для кнопок клонирования (они отключены)
 local function createClone() end
 local function deleteLastClone() end
@@ -632,6 +716,7 @@ ToggleFlyButton.MouseButton1Click:Connect(toggleFlight)
 ToggleNoclipButton.MouseButton1Click:Connect(toggleNoclip)
 ToggleGodModeButton.MouseButton1Click:Connect(toggleGodMode)
 ToggleRotateButton.MouseButton1Click:Connect(toggleRotate)
+ToggleTeleportButton.MouseButton1Click:Connect(toggleTeleport)
 ApplyHPButton.MouseButton1Click:Connect(changeHP)
 ToggleCloneButton.MouseButton1Click:Connect(createClone)
 DeleteCloneButton.MouseButton1Click:Connect(deleteLastClone)
@@ -663,6 +748,10 @@ Player.CharacterAdded:Connect(function(character)
     if rotateEnabled then
         toggleRotate()
         toggleRotate()
+    end
+    if teleportEnabled then
+        toggleTeleport()
+        toggleTeleport()
     end
     changeHP()
 end)
